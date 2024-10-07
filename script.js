@@ -9,7 +9,7 @@ document.getElementById('getDetails').addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             const soilMoistureData = data.map(item => item.soilMoisture);
-            document.getElementById('soilMoisture').innerText = '<strong>Soil Moisture:</strong> ' + soilMoistureData.join(', ');
+            document.getElementById('soilMoisture').innerText = 'Soil Moisture: ' + soilMoistureData.join(', ');
 
             const soilMoistureChartCtx = document.getElementById('soilMoistureChart').getContext('2d');
             new Chart(soilMoistureChartCtx, {
@@ -40,7 +40,7 @@ document.getElementById('getDetails').addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             const precipitationData = data.map(item => item.precipitation);
-            document.getElementById('precipitation').innerText = '<strong>Precipitation:</strong> ' + precipitationData.join(', ');
+            document.getElementById('precipitation').innerText = 'Precipitation: ' + precipitationData.join(', ');
 
             const precipitationChartCtx = document.getElementById('precipitationChart').getContext('2d');
             new Chart(precipitationChartCtx, {
@@ -71,7 +71,7 @@ document.getElementById('getDetails').addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             const vegetationData = data.map(item => item.vegetation);
-            document.getElementById('vegetation').innerText = '<strong>Vegetation Data:</strong> ' + vegetationData.join(', ');
+            document.getElementById('vegetation').innerText = 'Vegetation Data: ' + vegetationData.join(', ');
 
             const vegetationChartCtx = document.getElementById('vegetationChart').getContext('2d');
             new Chart(vegetationChartCtx, {
@@ -102,7 +102,7 @@ document.getElementById('getDetails').addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             const floodLevelsData = data.map(item => item.floodLevels);
-            document.getElementById('floodLevels').innerText = '<strong>Flood Levels:</strong> ' + floodLevelsData.join(', ');
+            document.getElementById('floodLevels').innerText = 'Flood Levels: ' + floodLevelsData.join(', ');
 
             const floodLevelsChartCtx = document.getElementById('floodLevelsChart').getContext('2d');
             new Chart(floodLevelsChartCtx, {
@@ -132,7 +132,7 @@ document.getElementById('getDetails').addEventListener('click', () => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
         .then(response => response.json())
         .then(weatherData => {
-            document.getElementById('weather').innerText = `<strong>Weather:</strong> ${weatherData.weather[0].description}, <strong>Temprature:</strong> ${Math.round(weatherData.main.temp - 273.15)}°C`;
+            document.getElementById('weather').innerText = `Weather: ${weatherData.weather[0].description}, Temperature: ${Math.round(weatherData.main.temp - 273.15)}°C`;
         })
         .catch(error => console.error('Error fetching weather data:', error));
 });
